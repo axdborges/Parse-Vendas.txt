@@ -1,0 +1,18 @@
+Fazer template que recebe upload de arquivo
+
+Pegar os dados desse arquivo 
+
+tratar esses dados: 
+  - Separar pagamento
+  - separar valor
+  - hora
+  - data 
+  - cpf 
+  - dono da loja 
+  - nome da loja 
+
+salvar os tipos de dados em uma tabela 
+
+salvar os dados das informações em outra tabela com relacionamento com tipos de dados 
+
+Retornar esses dados tratados na tela 
