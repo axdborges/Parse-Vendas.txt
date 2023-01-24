@@ -1,6 +1,3 @@
-Fazer template que recebe upload de arquivo
-
-Pegar os dados desse arquivo 
 
 tratar esses dados: 
   - tipo

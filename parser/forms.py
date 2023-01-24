@@ -1,5 +1,12 @@
 from django import forms
+from parser.models import InfoModel
 
 class CnabForm(forms.Form):
-    Archive: forms.FileField(label="Arquivo")
+    archive = forms.FileField(required=False)
+    # class Meta:
+    #     model = InfoModel
+    #     fields = "__all__"
+
     
+    
+
