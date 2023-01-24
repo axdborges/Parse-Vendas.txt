@@ -3,13 +3,25 @@ Fazer template que recebe upload de arquivo
 Pegar os dados desse arquivo 
 
 tratar esses dados: 
-  - Separar pagamento
-  - separar valor
-  - hora
+  - tipo
   - data 
+  - valor
   - cpf 
+  - cartão
+  - hora
   - dono da loja 
   - nome da loja 
+
+Como ler esses dados: 
+    cada linha é uma string e utilizando a documentação do canvas devem ser tratados os dados
+    usar metodo de string com inicio e final de cada info: 
+        for linha in arquivo:
+            (rodar um switch case sobre numeros de tipos de transações
+            dependendo do codigo da documentação colocar salvar como negativo 
+            ou positivo o valor da venda)
+            model.tipo = linha[0] 
+            model.data = linha[1:8]
+            model.save_no_banco()
 
 salvar os tipos de dados em uma tabela 
 
