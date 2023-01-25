@@ -12,23 +12,24 @@ class InfoModel(models.Model):
     loja = models.CharField(max_length=19)
     
 class typeOperation(models.Choices):
-    debito = "debito entrada"
-    boleto = ("boleto saida")
-    financiamento = "financiamento saida"
-    credito = "credito entrada"
-    emprestimo = "recebimento emprestimo entrada"
-    vendas = "vendas entrada"
-    ted = "recebimento ted entrada"
-    doc = "recebimento doc entrada"
-    aluguel = "aluguel saida"
+    debito = "debito"
+    boleto = "boleto"
+    financiamento = "financiamento"
+    credito = "credito"
+    emprestimo = "recebimento emprestimo"
+    vendas = "vendas"
+    ted = "recebimento ted"
+    doc = "recebimento doc"
+    aluguel = "aluguel"
 
 
 class ParsedModel(models.Model):
-    tipo = models.CharField(max_length=255, choices=typeOperation.choices, default="asda")
+    tipo = models.CharField(max_length=255, choices=typeOperation.choices, default=None)
+    natureza = models.CharField(max_length=7, default=None)
     data = models.DateField()
     valor = models.IntegerField()
     cpf = models.CharField(max_length=11)
     cartao = models.CharField(max_length=12)
-    hora = models.TimeField()
+    hora = models.TimeField(auto_now=False, auto_now_add=False)
     dono = models.CharField(max_length=14)
     loja = models.CharField(max_length=19)

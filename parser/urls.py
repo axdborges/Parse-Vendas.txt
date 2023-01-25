@@ -1,7 +1,7 @@
 from django.urls import path 
 
-from parser import views
+from parser.views import ParseCnab
 
 urlpatterns = [
-    path('index/', views.form_cnab, name='form_cnab')
+    path('index/', ParseCnab.form_cnab, name='form_cnab')
 ]
