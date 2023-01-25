@@ -1,3 +1,7 @@
-Consertar caracteres especiais 
+Fazer tratativas de dados como pede:
+
+  Salvar em outra tabela de lojas todas as operações por loja com operações 
+  e valor total no saldo de cada loja
+
 
 Fazer read me 

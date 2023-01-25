@@ -29,16 +29,17 @@ class ParseCnab():
           'form': form
       }
       return TableCnab.generate_table(ParseCnab.parsed_infos)
-      # return render(request, "form.html", context=context)
   
   def handle_uploaded_file(file: bytes):
     infos = file.readlines()
+    
     for info in infos:
-      ParseCnab.handle_line(info)
+      # ipdb.set_trace()
+      ParseCnab.handle_line(info.decode("utf8"))
 
   def handle_line(line: bytes):
     string_line = str(line)
-    string_clean = string_line[2:string_line.find("\\n\\r")-5]
+    string_clean = string_line[0:string_line.find("\\n\\r")-1]
     ParseInfoSerializer.createInfoModel(string_clean)
 
 
