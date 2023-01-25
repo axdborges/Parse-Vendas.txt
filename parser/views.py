@@ -1,13 +1,16 @@
-from django.shortcuts import render
-from django.views.generic import FormView
-from django.urls import reverse_lazy
+from django.shortcuts import render, HttpResponse
+import pandas as pd
+import sqlite3 
+from sqlite3 import Error
 import ipdb
 
 from .forms import CnabForm
 from .serializers import ParseInfoSerializer
+from .models import ParsedModel
 
 class ParseCnab():
-
+  parsed_infos = ParsedModel.objects.all()
+ 
   def form_cnab(request):
     if request.method == "GET":
       form = CnabForm()
@@ -20,27 +23,34 @@ class ParseCnab():
       if form.is_valid():
           archive = request.FILES.get("archive")
           ParseCnab.handle_uploaded_file(archive)
-          # cnab = form.save()
           form = CnabForm()
       
       context = {
           'form': form
       }
-      return render(request, "form.html", context=context)
+      return TableCnab.generate_table(ParseCnab.parsed_infos)
+      # return render(request, "form.html", context=context)
   
   def handle_uploaded_file(file: bytes):
-    # encoding = "utf-8"
     infos = file.readlines()
     for info in infos:
-      
       ParseCnab.handle_line(info)
-    print()
-    return file
 
   def handle_line(line: bytes):
     string_line = str(line)
     string_clean = string_line[2:string_line.find("\\n\\r")-5]
     ParseInfoSerializer.createInfoModel(string_clean)
 
+
+class TableCnab():
+
+  def generate_table(query):
+
+    read_table = pd.read_sql("SELECT * FROM parser_parsedmodel", 
+    # "C:\\Users\\axdbo\\OneDrive\\Área de Trabalho\\Kenzie\\m6\\Parse-CNAB_doc\\db.sqlite3")
+    sqlite3.connect("C:\\Users\\axdbo\\OneDrive\\Área de Trabalho\\Kenzie\\m6\\Parse-CNAB_doc\\db.sqlite3"))
+
+    table_html = read_table.to_html()
+    return HttpResponse(table_html)
     
 

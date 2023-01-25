@@ -66,7 +66,6 @@ class ParseInfoSerializer(serializers.ModelSerializer):
         }
 
         new_parsed_info = ParsedModel.objects.create(**parsed_info_data)
-        ipdb.set_trace()
         return new_parsed_info
 
         

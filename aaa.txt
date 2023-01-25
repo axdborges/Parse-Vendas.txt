@@ -1,5 +1,3 @@
-salvar os tipos de dados em um construtor de tabela 
+Consertar caracteres especiais 
 
-salvar os dados das informações em outra tabela com relacionamento com tipos de dados 
-
-Retornar esses dados tratados na tela 
+Fazer read me 
