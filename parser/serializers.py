@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import  InfoModel, ParsedModel, typeOperation
 from datetime import datetime, time
-import ipdb
+
 
 class ParseInfoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,6 +26,7 @@ class ParseInfoSerializer(serializers.ModelSerializer):
     def parseInfos(info: dict):
         type = ""
         nature = ""
+        value = int(info.valor) / 100
         if info.tipo == "1":
             type = typeOperation.debito.value
         elif info.tipo == "2":
@@ -47,6 +48,7 @@ class ParseInfoSerializer(serializers.ModelSerializer):
 
         if type == "boleto" or type == "financiamento" or type == "aluguel":
             nature = "saida"
+            value = -value
         else: 
             nature = "entrada"
 
@@ -57,7 +59,7 @@ class ParseInfoSerializer(serializers.ModelSerializer):
             "tipo": type,
             "natureza": nature,
             "data": date,
-            "valor": int(info.valor) / 100,
+            "valor": value,
             "cpf": info.cpf,
             "cartao": info.cartao,
             "hora": hour,
