@@ -61,3 +61,11 @@ python manage.py runserver
 Se o servidor estiver rodando normalmente abra o seu navegador no seguinte link: 
 
 <http://localhost:8000/form/index/>
+
+
+
+Neste link o servidor vai renderizar um formulário **básico** somente para fazer o upload do arquivo. 
+
+O tipo de arquivo que funciona nesta aplicação é como o *CNAB.txt* que está neste repositório.
+
+Se tudo estiver sido feito conforme as instruções a tela final da aplicação deve ser essa: 
