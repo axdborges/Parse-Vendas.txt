@@ -66,6 +66,13 @@ python manage.py migrate
 ~~~
 
 
+## Adicione sua Secret Key: 
+
+
+No arquivo **.env.example** renomeie este arquivo para somente **.env** e na variável de ambiente **SECRET_KEY** adicione a sua secret Key
+
+
+
 ## Rodar o projeto localmente: 
 
 
